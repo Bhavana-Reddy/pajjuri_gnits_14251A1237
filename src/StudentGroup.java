@@ -132,7 +132,7 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 		int removed =0;
 		for (int i =0; i< students.length ; i ++ ){
-			if (students[i].compareTo(student) == 0){
+			if (students[i].compareTo(student) != 0){
 				students[i] = null;
 			}
 		}
