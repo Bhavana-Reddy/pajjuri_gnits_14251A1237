@@ -32,51 +32,92 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
-		
 		if (students == null){
 			throw new IllegalArgumentException();
-		}
-		
+		}		
 		this.students = students;
 	}
 
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
+		
+		if (index < 0 || index > students.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		
 		return students[index];
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
-		// Add your implementation here
+		
+		if (students == null){
+			throw new IllegalArgumentException();
+		}
+		
+		if (index < 0 || index > students.length - 1) {
+			throw new IllegalArgumentException();
+		}
 		students[index] = student;
 	}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		if (students == null){
+			throw new IllegalArgumentException();
+		}
 		students[0] = student;
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		if (students == null){
+			throw new IllegalArgumentException();
+		}
 		students[students.length] = student;
 	}
 
 	@Override
 	public void add(Student student, int index) {
-		// Add your implementation here
+		if (students == null){
+			throw new IllegalArgumentException();
+		}
+		
+		if (index < 0 || index > students.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		students[index] = student;
 	}
 
 	@Override
 	public void remove(int index) {
+		if (index < 0 || index > students.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		students[index] = null;
 		// Add your implementation here
 	}
 
 	@Override
 	public void remove(Student student) {
-		// Add your implementation here
+		
+		if (students == null){
+			throw new IllegalArgumentException();
+		}
+		int removed =0;
+		for (int i =0; i< students.length ; i ++ ){
+			if (students[i].compareTo(student) == 0){
+				students[i] = null;
+				removed =1;
+				break;
+			}
+		}
+		if(removed ==0){
+			throw new IllegalArgumentException("Student not exists");
+		}
 	}
 
 	@Override
