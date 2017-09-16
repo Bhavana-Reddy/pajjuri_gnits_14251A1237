@@ -191,14 +191,14 @@ public class StudentGroup implements StudentArrayOperation {
 		int count =0;
 		
 		for (int i =0;i< students.length;i++) {
-			if (students[i].getBirthDate().getTime() <= date.getTime() ) {
+			if (students[i].getBirthDate().before(date) ||  students[i].getBirthDate().equals(date) ) {
 				count ++;
 			}
 		}
 		Student[] sameStudents = new Student[count];
 		int c = 0;
 		for (int i =0;i< students.length;i++) {
-			if (students[i].getBirthDate().getTime() <= date.getTime()) {
+			if (students[i].getBirthDate().before(date) ||  students[i].getBirthDate().equals(date)) {
 				sameStudents[c] = students[i];
 				c++;
 			}
@@ -210,7 +210,23 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
-		return null;
+		
+		if (firstDate == null || lastDate == null){
+			throw new IllegalArgumentException();
+		}
+		
+		List<Student> studentList = new ArrayList<Student>();
+		
+		for (int i =0;i > students.length; i++) {
+			if ( (students.get[i].getBirthDate().before(lastDate) || students.get[i].getBirthDate().equals(lastDate) )  && (students.get[i].getBirthDate().after(firstDate) || students.get[i].getBirthDate().equals(firstDate) )  ) {
+				studentList.add(students.get[i]);
+			}
+		}
+		
+		Student[] studentbeteen = new Student[studentList.size()];
+		studentbeteen = studentList.toArray(studentbeteen);
+
+		return studentbeteen;
 	}
 
 	@Override
