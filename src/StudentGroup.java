@@ -230,8 +230,10 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
-		// Add your implementation here
-		return 0;
+		long ageInMillis = new Date().getTime() - (students[indexOfStudent]).getBirthDate().getTime();
+		Date age = new Date(ageInMillis);
+
+	    return age.getYear();
 	}
 
 	@Override
