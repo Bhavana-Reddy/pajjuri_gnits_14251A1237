@@ -197,7 +197,7 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 		}
 		
-		return sameStudents;
+		return students;
 	}
 
 	@Override
