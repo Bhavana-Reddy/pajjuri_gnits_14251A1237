@@ -230,6 +230,11 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
+		
+		if (indexOfStudent == 0){
+			throw new IllegalArgumentException();
+		}
+		
 		long ageInMillis = new Date().getTime() - (students[indexOfStudent]).getBirthDate().getTime();
 		Date age = new Date(ageInMillis);
 
@@ -239,13 +244,44 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		return null;
+		
+		List<Student> studentList = new ArrayList<Student>();
+		for(int i =0 ; i< students.length ;i++){
+			if ( this.getCurrentAgeByDate(i) ==  age ) {
+				studentList.add(students[i]);
+			}
+		}
+		
+		Student [] studentbeteen =  studentList.toArray(new Student[studentList.size()]);
+		return studentbeteen;
 	}
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
+		double maxMark = 0;
+		for (int i =0; i<students.length; i++) {
+			
+			if (students[i] != null){
+				if (students[i].getAvgMark() > maxMark) {
+					maxMark = students[i].getAvgMark();
+				}
+			}
+		}
+		
+		List<Student> studentList = new ArrayList<Student>();
+		
+		for (int i =0; i<students.length; i++) {
+			if (students[i] != null){
+			if (students[i].getAvgMark() == maxMark){
+				studentList.add(students[i]);
+			}
+			}
+		}
+		
+		Student [] studentbeteen =  studentList.toArray(new Student[studentList.size()]);
+		
 		// Add your implementation here
-		return null;
+		return studentbeteen;
 	}
 
 	@Override
