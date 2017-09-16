@@ -38,22 +38,25 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
-		return null;
+		return students[index];
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
+		students[index] = student;
 	}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		students[0] = student;
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		students[students.length] = student;
 	}
 
 	@Override
