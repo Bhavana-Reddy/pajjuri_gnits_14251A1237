@@ -217,9 +217,9 @@ public class StudentGroup implements StudentArrayOperation {
 		
 		List<Student> studentList = new ArrayList<Student>();
 		
-		for (int i =0;i > students.length; i++) {
-			if ( (students.get[i].getBirthDate().before(lastDate) || students.get[i].getBirthDate().equals(lastDate) )  && (students.get[i].getBirthDate().after(firstDate) || students.get[i].getBirthDate().equals(firstDate) )  ) {
-				studentList.add(students.get[i]);
+		for (int i =0;i < students.length; i++) {
+			if ( ( students[i].getBirthDate().before(lastDate) || students[i].getBirthDate().equals(lastDate) )  && (students[i].getBirthDate().after(firstDate) || students[i].getBirthDate().equals(firstDate) )  ) {
+				studentList.add(students[i]);
 			}
 		}
 		
