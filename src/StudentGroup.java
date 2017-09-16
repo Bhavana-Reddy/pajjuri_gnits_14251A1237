@@ -177,6 +177,7 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void bubbleSort() {
+		Arrays.sort(students);
 		// Add your implementation here
 	}
 
