@@ -191,14 +191,14 @@ public class StudentGroup implements StudentArrayOperation {
 		int count =0;
 		
 		for (int i =0;i< students.length;i++) {
-			if (students[i].getBirthDate().equals(date)) {
+			if (students[i].getBirthDate().getTime() <= date.getTime() ) {
 				count ++;
 			}
 		}
 		Student[] sameStudents = new Student[count];
 		int c = 0;
 		for (int i =0;i< students.length;i++) {
-			if (students[i].getBirthDate().equals(date)) {
+			if (students[i].getBirthDate().getTime() <= date.getTime()) {
 				sameStudents[c] = students[i];
 				c++;
 			}
