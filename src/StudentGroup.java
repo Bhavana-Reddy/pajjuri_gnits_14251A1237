@@ -196,7 +196,7 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 		}
 		Student[] sameStudents = new Student[count];
-		int c = count;
+		int c = 0;
 		for (int i =0;i< students.length;i++) {
 			if (students[i].getBirthDate().equals(date)) {
 				sameStudents[c] = students[i];
