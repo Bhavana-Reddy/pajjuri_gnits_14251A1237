@@ -122,6 +122,12 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		if (index < 0 || index > students.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		for(int i = index +1;i<students.length;i++){
+			students[i] = null;
+		}
 	}
 
 	@Override
@@ -131,21 +137,42 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		int removed =0;
-		for (int i =0; i< students.length ; i ++ ){
-			if (students[i].compareTo(student) != 0){
-				students[i] = null;
+		int i =0;
+		for (i =0; i< students.length ; i ++ ){
+			if (students[i].compareTo(student) == 0){
+				break;
 			}
+		}
+		i++;
+		for (; i< students.length ; i ++){
+			students[i] = null;
 		}
 	}
 
 	@Override
 	public void removeToIndex(int index) {
-		// Add your implementation here
+		if (index < 0 || index > students.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		for(int i =0;i < index;i++) {
+			students[i] = null;
+		}
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		if (students == null){
+			throw new IllegalArgumentException();
+		}
+		
+		for (int i =0;i< students.length;i++){
+			if (students[i].compareTo(student) == 0){
+				break;
+			} else {
+				students[i] =  null;
+			}
+		}
 	}
 
 	@Override
